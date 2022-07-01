@@ -112,18 +112,67 @@ designs/<spm>
 Configuration
 ├──general.tcl
 ├──Synthesis.tcl
+├──Floorplan.tcl
+├──Placement.tcl
+├──Cts.tcl
+│──Routing.tcl
+Script
+│   ├── tcl_command
+│   │   │   ├──general.tcl
+│   │   │   ├──synthesis.tcl
+│   │   │   ├── floorplan.tcl
+│   │   │   ├── placement.tcl
+│   │   │   ├── cts.tcl
+│   │   │   └── routing.tcl
+
+```
+### Runs Structure
+```
+
+designs/spm
+├── config.tcl
+├── src
+├── runs
+│   ├── run1
+│   │   ├── config.tcl
+│   │   ├── logs
+│   │   │   ├── cts
+│   │   │   ├── cvc
 │   │   │   ├── floorplan
+│   │   │   ├── klayout
+│   │   │   ├── magic
+│   │   │   ├── placement
+│   │   │   ├── routing
+│   │   │   └── synthesis
+│   │   ├── reports
+│   │   │   ├── cts
+│   │   │   ├── cvc
+│   │   │   ├── floorplan
+│   │   │   ├── klayout
+│   │   │   ├── magic
 │   │   │   ├── placement
 │   │   │   ├── routing
 │   │   │   └── synthesis
 │   │   ├── results
-│   │   │   ├── final
 │   │   │   ├── cts
-│   │   │   ├── signoff
+│   │   │   ├── cvc
 │   │   │   ├── floorplan
+│   │   │   ├── klayout
+│   │   │   ├── magic
 │   │   │   ├── placement
 │   │   │   ├── routing
 │   │   │   └── synthesis
+│   │   └── tmp
+│   │       ├── cts
+│   │       ├── cvc
+│   │       ├── floorplan
+│   │       ├── klayout
+│   │       ├── magic
+│   │       ├── placement
+│   │       ├── routing
+│   │       └── synthesis
+
+
 ```
 
 
