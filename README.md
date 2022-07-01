@@ -1,4 +1,5 @@
-# Introduction
+# Flow Tutorial
+## Introduction
 
 This document  includes tutorials for running an entire OpenROAD-based flow from RTL to GDSII.This tutorials  includes  GUI visualisation , EDA tools,Design Explorations, and  Different Design Experiments. Additionally, a brief description of each step in the flow is provided, facilitating the user's comprehension and ease of usage.
 
@@ -66,6 +67,68 @@ The OpenRoad Openlane is a automated RTL to GDSII flow build around open source 
    - `Magic`- Performs DRC Checks & Antenna Checks
    - `Klayout` - Performs DRC Checks
    - `Netgen` - Performs LVS Checks 
+## Setting Up Design
+To setup the design, follow the instructions given below:
+1. Make a directtory of your design in openlane/design/ using the command:
+   `mkdir design_name`
+2. Go in the OpenLane Directory and run `make mount`
+3. To Generate the config.tcl file in the docker using command
+  `./flow.tcl -design ”your design name” -init_deisgn_config`
+4. Exit and Go to the directory to check generate the config.tcl 
+
+The OpenLane flow RTL to GDSII run in two mode defined below:
+
+**Interactive Mode**  will run the OpenLane in a interactive mode where every steps of a design run by the user .
+
+using command to enter in a interactive mode 
+
+```
+  ./flow.tcl -interactive
+   %Prep -design <design_name> # will configure the selected cell for a design by merging LEF file
+   run_synthesis
+   run_floorplan
+   run_placement
+   run_cts
+   run_routing
+   write_powered_verilog
+   run_magic
+   run_magic_spice_export 
+   run_magic_drc      
+```
+**Non Interactive Mode** automatically run every steps of flow
+
+using command to enter in a non interactive mode
+
+```
+./flow.tcl  -design <design_name>  -tag <tag>
+```
+## OpenLane Structure
+```
+designs/<spm>
+├── config.tcl
+├── runs
+│── src
+│   ├──spm.v
+Configuration
+├──general.tcl
+├──Synthesis.tcl
+│   │   │   ├── floorplan
+│   │   │   ├── placement
+│   │   │   ├── routing
+│   │   │   └── synthesis
+│   │   ├── results
+│   │   │   ├── final
+│   │   │   ├── cts
+│   │   │   ├── signoff
+│   │   │   ├── floorplan
+│   │   │   ├── placement
+│   │   │   ├── routing
+│   │   │   └── synthesis
+```
+
+
+
+
 
 
 
