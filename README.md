@@ -175,7 +175,25 @@ designs/spm
 
 ```
 
+## Platform Configuration
 
+
+
+
+
+
+
+## Design Configuration
+
+
+
+
+
+
+
+
+
+## Design Input Verilog
 
 
 
